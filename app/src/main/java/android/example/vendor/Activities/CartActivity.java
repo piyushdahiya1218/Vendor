@@ -2,6 +2,7 @@ package android.example.vendor.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.os.ConfigurationCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -102,6 +104,7 @@ public class CartActivity extends AppCompatActivity {
 
                 Intent homeintent=new Intent(getApplicationContext(), HomePageActivity.class);
                 homeintent.putExtra("phonenumber", phonenumber);
+                homeintent.putExtra("currentlang",ConfigurationCompat.getLocales(getResources().getConfiguration()).get(0).getDisplayLanguage());
                 startActivity(homeintent);
             }
         });

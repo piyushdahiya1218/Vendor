@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vendor</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="langprefbutton">अगला</string>
+
+    <string name="p1heading">पंजीकरण</string>
+    <string name="p1businessname">व्यवास्यक नाम</string>
+    <string name="p1username">उपयोगकर्ता नाम</string>
+    <string name="p1phonenumber">फ़ोन नंबर</string>
+    <string name="p1nextbutton">अगला</string>
+
+    <string name="p2heading">आधार प्राधिकरण</string>
+    <string name="p2enteraadhar">आधार नंबर दर्ज करें</string>
+    <string name="p2enterotp">ओटीपी दर्ज करें</string>
+    <string name="p2submit">अगला</string>
+
+    <string name="p3heading">उत्पाद प्रकार</string>
+    <string name="p3fruits">फल</string>
+    <string name="p3vegetables">सब्ज़ियाँ</string>
+    <string name="p3submit">अगला</string>
+
+
+    <string name="menu">मेन्यू</string>
+    <string name="name">नाम</string>
+    <string name="price">कीमत<br/>(Rs.)</string>
+    <string name="quantity">मात्रा<br/>(kg)</string>
+    <string name="confirm">अगला</string>
+
+    <string name="cart">कार्ट</string>
+    <string name="editcart">गाड़ी बदलें</string>
+    <string name="profile">प्रोफ़ाइल</string>
+    <string name="home">घर</string>
+
+    <string name="profilebusinessname">व्यवास्यक नाम : </string>
+    <string name="profileusername">उपयोगकर्ता नाम : </string>
+    <string name="profilephoneno">फ़ोन नंबर : </string>
+    <string name="profileproducttype">उत्पाद प्रकार : </string>
+    <string name="profileproducts">उत्पादों : </string>
+
+    <string name="totalorders">कुल आदेश  :  10</string>
+    <string name="delivered">पहुंचा दिया  :  7</string>
+    <string name="orderspending">आदेश लंबित  :  3</string>
+
+    <string name="accept">स्वीकार</string>
+    <string name="decline">अस्वीकार</string>
+</resources>

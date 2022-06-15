@@ -1,4 +1,46 @@
 <resources>
     <string name="app_name">Vendor</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="langprefbutton">Next</string>
+
+    <string name="p1heading">REGISTRATION</string>
+    <string name="p1businessname">Business Name</string>
+    <string name="p1username">User name</string>
+    <string name="p1phonenumber">Phone number</string>
+    <string name="p1nextbutton">Next</string>
+    
+    <string name="p2heading">Aadhar Auth</string>
+    <string name="p2enteraadhar">Enter Aadhar number</string>
+    <string name="p2enterotp">Enter OTP</string>
+    <string name="p2submit">Submit</string>
+
+    <string name="p3heading">Product Type</string>
+    <string name="p3fruits">Fruits</string>
+    <string name="p3vegetables">Vegetables</string>
+    <string name="p3submit">Submit</string>
+
+    <string name="menu">Menu</string>
+    <string name="name">Name</string>
+    <string name="price">Price<br/>(Rs.)</string>
+    <string name="quantity">Quantity<br/>(kg)</string>
+    <string name="confirm">Confirm</string>
+
+    <string name="cart">Cart</string>
+    <string name="editcart">Edit Cart</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+
+    <string name="profilebusinessname">Business Name : </string>
+    <string name="profileusername">User name : </string>
+    <string name="profilephoneno">Phone number : </string>
+    <string name="profileproducttype">Product Type : </string>
+    <string name="profileproducts">Products : </string>
+
+    <string name="totalorders">Total Orders  :  10</string>
+    <string name="delivered">Delivered  :  7</string>
+    <string name="orderspending">Orders Pending  :  3</string>
+
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
 </resources>

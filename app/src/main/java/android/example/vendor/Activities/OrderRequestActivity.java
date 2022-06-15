@@ -62,6 +62,7 @@ public class OrderRequestActivity extends FragmentActivity implements OnMapReady
         customerphonenumber=previntent.getStringExtra("customerphonenumber");
         Log.i(customerphonenumber,customerphonenumber);
         vendorphonenumber=previntent.getStringExtra("vendorphonenumber");
+        String currentlang=previntent.getStringExtra("currentlang");
 
         database=FirebaseDatabase.getInstance();
 
@@ -110,6 +111,12 @@ public class OrderRequestActivity extends FragmentActivity implements OnMapReady
 
         //when clicked on Accept
         Button acceptbutton=findViewById(R.id.acceptbutton);
+        if(currentlang.equals("Hindi")){
+            acceptbutton.setText("स्वीकार");
+        }
+        else{
+            acceptbutton.setText("Accept");
+        }
         acceptbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,6 +152,12 @@ public class OrderRequestActivity extends FragmentActivity implements OnMapReady
 
         //when clicked on Declined
         Button declinebutton=findViewById(R.id.declinebutton);
+        if(currentlang.equals("Hindi")){
+            declinebutton.setText("अस्वीकार");
+        }
+        else{
+            declinebutton.setText("Decline");
+        }
         declinebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

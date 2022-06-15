@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.os.ConfigurationCompat;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,6 +36,8 @@ public class ProfilePageActivity extends AppCompatActivity {
         Intent intent=getIntent();
         String phonenumber=intent.getStringExtra("phonenumber");
 
+        String currentlanguage=ConfigurationCompat.getLocales(getResources().getConfiguration()).get(0).getDisplayLanguage();
+
         //vendor object data is extracted for the particular phonenumber (number that the user has currently registered with)
         //After getting the vendor object from firebase, values are set
         database=FirebaseDatabase.getInstance();
@@ -48,7 +51,17 @@ public class ProfilePageActivity extends AppCompatActivity {
                         businessnametextview.setText(vendor.getBusinessname());
                         usernametextview.setText(vendor.getUsername());
                         phonenumbertextview.setText(vendor.getPhonenumber());
-                        producttypetextview.setText(vendor.getProducttype());
+                        if(currentlanguage.equals("Hindi")){
+                            if(vendor.getProducttype().equals("fruits")){
+                                producttypetextview.setText("फल");
+                            }
+                            else{
+                                producttypetextview.setText("सब्ज़ियाँ");
+                            }
+                        }
+                        else{
+                            producttypetextview.setText(vendor.getProducttype());
+                        }
                     }
                 }
             }
@@ -59,6 +72,7 @@ public class ProfilePageActivity extends AppCompatActivity {
             }
         });
 
+
         //get list of products for particular vendor
         reference=database.getReference("vendorcart").child(phonenumber);
         reference.addValueEventListener(new ValueEventListener() {
@@ -68,11 +82,21 @@ public class ProfilePageActivity extends AppCompatActivity {
                     String productsliststring=null;
                     for(DataSnapshot vendorcart : snapshot.getChildren()){
                         if(vendorcart!=null){
-                            if(productsliststring==null){
-                                productsliststring=vendorcart.child("productnameeng").getValue().toString();
+                            if(currentlanguage.equals("Hindi")){
+                                if(productsliststring==null){
+                                    productsliststring=vendorcart.child("productnamehindi").getValue().toString();
+                                }
+                                else{
+                                    productsliststring = productsliststring + ", " + vendorcart.child("productnamehindi").getValue().toString();
+                                }
                             }
                             else{
-                                productsliststring = productsliststring + ", " + vendorcart.child("productnameeng").getValue().toString();
+                                if(productsliststring==null){
+                                    productsliststring=vendorcart.child("productnameeng").getValue().toString();
+                                }
+                                else{
+                                    productsliststring = productsliststring + ", " + vendorcart.child("productnameeng").getValue().toString();
+                                }
                             }
                         }
                     }

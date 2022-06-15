@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.os.ConfigurationCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
@@ -21,6 +22,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -45,6 +47,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 public class HomePageActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
                             //extends AppCompatActivity, FragmentActiviy
@@ -71,6 +75,7 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
 
         Intent previntent=getIntent();
         vendorphonenumber=previntent.getStringExtra("phonenumber");
+        String currentlang=previntent.getStringExtra("currentlang");
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -115,6 +120,20 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
             }
         });
 
+        TextView totalorderstv=findViewById(R.id.totalorders);
+        TextView deliveredtv=findViewById(R.id.delivered);
+        TextView pendingtv=findViewById(R.id.orderspending);
+        if(currentlang.equals("Hindi")){
+            totalorderstv.setText("कुल आदेश  :  10");
+            deliveredtv.setText("पहुंचा दिया  :  7");
+            pendingtv.setText("आदेश लंबित  :  3");
+        }
+        else{
+            totalorderstv.setText("Total Orders  :  10");
+            deliveredtv.setText("Delivered  :  7");
+            pendingtv.setText("Orders Pending  :  3");
+        }
+
         //listen for order requests made by customers
         database=FirebaseDatabase.getInstance();
         reference=database.getReference("vendorrequests").child(vendorphonenumber);
@@ -129,6 +148,7 @@ public class HomePageActivity extends FragmentActivity implements OnMapReadyCall
                         Intent intent=new Intent(getApplicationContext(),OrderRequestActivity.class);
                         intent.putExtra("vendorphonenumber",vendorphonenumber);
                         intent.putExtra("customerphonenumber",customerphonenumber);
+                        intent.putExtra("currentlang",currentlang);
                         startActivity(intent);
                     }
                 }

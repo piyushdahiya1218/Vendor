@@ -48,7 +48,7 @@ public class RegistrationP3Activity extends AppCompatActivity {
                 else{
                     RadioButton radioButton=findViewById(radioid);      //connect this new radiobutton with above selected radiobutton
                     // if fruit was selected
-                    if (radioButton.getText().equals("Fruits")){
+                    if (radioButton.getText().equals("Fruits") || radioButton.getText().equals("फल")){
                         //pass data to fruits activity
                         Intent intent=new Intent(getApplicationContext(), FruitsActivityWithPics.class);
                         intent.putExtra("businessname", businessname);
@@ -62,7 +62,7 @@ public class RegistrationP3Activity extends AppCompatActivity {
                         reference.setValue(new Vendor(businessname,username,phonenumber,"fruits"));
                     }
                     // if vegetables was selected
-                    else if (radioButton.getText().equals("Vegetables")){
+                    else if (radioButton.getText().equals("Vegetables") || radioButton.getText().equals("सब्ज़ियाँ")){
                         //pass data to vegetable activity
                         Intent intent=new Intent(getApplicationContext(), VegetablesActivityWithPics.class);
                         intent.putExtra("businessname", businessname);
