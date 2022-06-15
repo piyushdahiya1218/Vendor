@@ -13,6 +13,8 @@ import android.example.vendor.Classes.CustomerCart;
 import android.example.vendor.Classes.Product;
 import android.example.vendor.Classes.RequestFrom;
 import android.example.vendor.R;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.net.Uri;
@@ -27,6 +29,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -182,6 +186,13 @@ public class OrderRequestActivity extends FragmentActivity implements OnMapReady
     @Override
     public void onMapReady(@NonNull GoogleMap map) {
 
+        int height=100;
+        int width=100;
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.customericon);
+        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+        BitmapDescriptor smallMarkerIcon = BitmapDescriptorFactory.fromBitmap(smallMarker);
+
+
         //for vendor
         database=FirebaseDatabase.getInstance();
         reference=database.getReference("vendorlocation").child(vendorphonenumber);
@@ -210,7 +221,7 @@ public class OrderRequestActivity extends FragmentActivity implements OnMapReady
                                 double customerlongitude=snapshot.child("longitude").getValue(Double.class);
                                 LatLng customerlatlng=new LatLng(customerlatitude,customerlongitude);
                                 if(customerfirsttime){
-                                    customermarker=map.addMarker(new MarkerOptions().position(customerlatlng).title("Customer"));
+                                    customermarker=map.addMarker(new MarkerOptions().position(customerlatlng).title("Customer").icon(smallMarkerIcon));
                                     customerfirsttime =false;
                                 }
                                 else{
