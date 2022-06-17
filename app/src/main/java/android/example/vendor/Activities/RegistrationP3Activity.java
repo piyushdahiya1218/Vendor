@@ -50,7 +50,7 @@ public class RegistrationP3Activity extends AppCompatActivity {
                     // if fruit was selected
                     if (radioButton.getText().equals("Fruits") || radioButton.getText().equals("फल")){
                         //pass data to fruits activity
-                        Intent intent=new Intent(getApplicationContext(), FruitsActivityWithPics.class);
+                        Intent intent=new Intent(getApplicationContext(), FruitsMenuActivity.class);
                         intent.putExtra("businessname", businessname);
                         intent.putExtra("username", username);
                         intent.putExtra("phonenumber", phonenumber);
@@ -59,12 +59,12 @@ public class RegistrationP3Activity extends AppCompatActivity {
 
                         database=FirebaseDatabase.getInstance();
                         reference=database.getReference("vendor").child(phonenumber);
-                        reference.setValue(new Vendor(businessname,username,phonenumber,"fruits"));
+                        reference.setValue(new Vendor(businessname,username,phonenumber,"fruits",true));
                     }
                     // if vegetables was selected
                     else if (radioButton.getText().equals("Vegetables") || radioButton.getText().equals("सब्ज़ियाँ")){
                         //pass data to vegetable activity
-                        Intent intent=new Intent(getApplicationContext(), VegetablesActivityWithPics.class);
+                        Intent intent=new Intent(getApplicationContext(), VegetablesMenuActivity.class);
                         intent.putExtra("businessname", businessname);
                         intent.putExtra("username", username);
                         intent.putExtra("phonenumber", phonenumber);
@@ -73,7 +73,7 @@ public class RegistrationP3Activity extends AppCompatActivity {
 
                         database=FirebaseDatabase.getInstance();
                         reference=database.getReference("vendor").child(phonenumber);
-                        reference.setValue(new Vendor(businessname,username,phonenumber,"vegetables"));
+                        reference.setValue(new Vendor(businessname,username,phonenumber,"vegetables",true));
                     }
                 }
             }

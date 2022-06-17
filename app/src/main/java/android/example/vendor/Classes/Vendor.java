@@ -5,8 +5,17 @@ import java.util.ArrayList;
 public class Vendor {
 
     String businessname, username, phonenumber, producttype;
+    boolean active;
 
     public Vendor() {
+    }
+
+    public Vendor(String businessname, String username, String phonenumber, String producttype, boolean active) {
+        this.businessname = businessname;
+        this.username = username;
+        this.phonenumber = phonenumber;
+        this.producttype = producttype;
+        this.active = active;
     }
 
     public Vendor(String businessname, String username, String phonenumber, String producttype) {
@@ -48,4 +57,11 @@ public class Vendor {
         this.producttype = producttype;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }
