@@ -29,7 +29,7 @@ public class VegetablesMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vegetables_with_pics);
+        setContentView(R.layout.activity_vegetables_menu);
 
         //intent info from previous activity
         Intent previntent=getIntent();

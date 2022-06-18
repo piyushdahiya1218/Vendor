@@ -47,8 +47,6 @@
         <activity
             android:name=".Activities.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".Activities.VegetableActivity" />
-        <activity android:name=".Activities.FruitsActivity" />
         <activity android:name=".Activities.RegistrationP3Activity" />
         <activity android:name=".Activities.RegistrationP2Activity" />
         <activity android:name=".Activities.MainActivity" />

@@ -29,7 +29,7 @@ public class FruitsMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fruits_with_pics);
+        setContentView(R.layout.activity_fruits_menu);
 
         //intent info from previous activity
         Intent previntent=getIntent();
