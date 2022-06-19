@@ -42,21 +42,26 @@ public class RegistrationP1Activity extends AppCompatActivity {
                 String username=getusername.getText().toString();
                 String phonenumber=getphonenumber.getText().toString();
 
-                //passing vendor registration info to next activity
-                Intent intent=new Intent(getApplicationContext(), RegistrationP2Activity.class);
-                intent.putExtra("businessname", businessname);
-                intent.putExtra("username", username);
-                intent.putExtra("phonenumber", phonenumber);
-                startActivity(intent);
+                if(businessname.equals("") || username.equals("") || phonenumber.equals("")){
+                    Toast.makeText(RegistrationP1Activity.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    //passing vendor registration info to next activity
+                    Intent intent=new Intent(getApplicationContext(), RegistrationP2Activity.class);
+                    intent.putExtra("businessname", businessname);
+                    intent.putExtra("username", username);
+                    intent.putExtra("phonenumber", phonenumber);
+                    startActivity(intent);
 
-                //passing info to shared preference
-                String sharedprefFile="file1";
-                SharedPreferences sharedPreferences=getSharedPreferences(sharedprefFile,MODE_PRIVATE);
-                SharedPreferences.Editor editor=sharedPreferences.edit();
-                editor.putString("businessname",businessname);
-                editor.putString("username",username);
-                editor.putString("phonenumber",phonenumber);
-                editor.apply();
+                    //passing info to shared preference
+                    String sharedprefFile="file1";
+                    SharedPreferences sharedPreferences=getSharedPreferences(sharedprefFile,MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putString("businessname",businessname);
+                    editor.putString("username",username);
+                    editor.putString("phonenumber",phonenumber);
+                    editor.apply();
+                }
             }
         });
     }
