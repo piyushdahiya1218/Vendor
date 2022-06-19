@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.example.vendor.Adapters.recyclerAdapterforMenu;
 import android.example.vendor.Classes.Product;
 import android.example.vendor.R;
@@ -25,23 +26,33 @@ public class FruitsMenuActivity extends AppCompatActivity {
     DatabaseReference reference;
     ArrayList<Product> allproductslist=new ArrayList<Product>();
     private RecyclerView recyclerView;
+    String phonenumber=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fruits_menu);
 
-        //intent info from previous activity
-        Intent previntent=getIntent();
-        String phonenumber=previntent.getStringExtra("phonenumber");
+        SharedPreferences sharedPreferences=getSharedPreferences("file1",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+
+        if(sharedPreferences.getString("phonenumber","").equals("")){
+            //intent info from previous activity
+            Intent previntent=getIntent();
+            phonenumber=previntent.getStringExtra("phonenumber");
+        }
+        else{
+            phonenumber=sharedPreferences.getString("phonenumber","");
+        }
 
         setproductslist();
 
         recyclerView=findViewById(R.id.allproductsrecyclerview);
+
         setAdapter();
 
-        Button cartbutton=findViewById(R.id.cartbutton1);
-        cartbutton.setOnClickListener(new View.OnClickListener() {
+        Button confirmbutton=findViewById(R.id.cartbutton1);
+        confirmbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ArrayList<Product> productArrayList =new ArrayList<Product>();
@@ -53,7 +64,7 @@ public class FruitsMenuActivity extends AppCompatActivity {
                         int productquantity=allproductslist.get(i).getQuantity();
                         int imageRid=allproductslist.get(i).getImageRid();
                         String producttype=allproductslist.get(i).getProducttype();
-                        productArrayList.add(new Product(productnameeng,productnamehindi,imageRid,productprice,productquantity,producttype));
+                        productArrayList.add(new Product(productnameeng,productnamehindi,imageRid,productprice,productquantity,true,producttype));
                     }
                 }
                 if(productArrayList.isEmpty()){
@@ -64,9 +75,17 @@ public class FruitsMenuActivity extends AppCompatActivity {
                     reference=database.getReference("vendorcart");
                     reference.child(phonenumber).setValue(productArrayList);
 
-                    Intent intent=new Intent(getApplicationContext(),CartActivity.class);
-                    intent.putExtra("phonenumber",phonenumber);
-                    startActivity(intent);
+                    if(sharedPreferences.getBoolean("menufirsttime",true)==true || sharedPreferences.getBoolean("cartfirsttime",true)==true){
+                        Intent intent=new Intent(getApplicationContext(),CartActivity.class);
+                        intent.putExtra("phonenumber",phonenumber);
+                        startActivity(intent);
+
+                        editor.putBoolean("menufirsttime",false);
+                        editor.apply();
+                    }
+                    else if(sharedPreferences.getBoolean("menufirsttime",true)==false && sharedPreferences.getBoolean("cartfirsttime",true)==false){
+                        finish();
+                    }
                 }
             }
         });

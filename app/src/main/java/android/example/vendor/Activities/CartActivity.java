@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.example.vendor.Adapters.recyclerAdapterforCart;
 import android.example.vendor.Classes.Product;
 import android.example.vendor.R;
@@ -36,15 +37,27 @@ public class CartActivity extends AppCompatActivity {
     DatabaseReference reference;
     ArrayList<Product> cartproductslist =new ArrayList<>();
     private RecyclerView recyclerView;
+    String phonenumber=null;
+    String language=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        //get data from previous activity
-        Intent previntent=getIntent();
-        String phonenumber=previntent.getStringExtra("phonenumber");
+        SharedPreferences sharedPreferences=getSharedPreferences("file1",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+
+        language=sharedPreferences.getString("language","");
+
+        if(sharedPreferences.getString("phonenumber","").equals("")){
+            //intent info from previous activity
+            Intent previntent=getIntent();
+            phonenumber=previntent.getStringExtra("phonenumber");
+        }
+        else{
+            phonenumber=sharedPreferences.getString("phonenumber","");
+        }
 
         recyclerView=findViewById(R.id.recyclerview);
 
@@ -55,6 +68,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
+                    cartproductslist.clear();
                     for(DataSnapshot vendorcart : snapshot.getChildren()){
                         if(vendorcart!=null){
                             cartproductslist.add(vendorcart.getValue(Product.class));
@@ -73,18 +87,22 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        //when toggle button is clicked
         ToggleButton toggleButton=findViewById(R.id.toggleButton);
+        toggleButton.setChecked(sharedPreferences.getBoolean("togglebutton",true));
+        //when toggle button is clicked
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 reference=database.getReference("vendor").child(phonenumber);
                 if (isChecked){
                     reference.child("active").setValue(true);
+                    editor.putBoolean("togglebutton",true);
                 }
                 else{
                     reference.child("active").setValue(false);
+                    editor.putBoolean("togglebutton",false);
                 }
+                editor.apply();
             }
         });
 
@@ -93,7 +111,26 @@ public class CartActivity extends AppCompatActivity {
         editcartbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                editor.putBoolean("cartfirsttime",false);
+                editor.apply();
+
+                if(sharedPreferences.getString("producttype","").equals("fruits")){
+                    Intent intent=new Intent(getApplicationContext(),FruitsMenuActivity.class);
+                    startActivity(intent);
+                }
+                else if(sharedPreferences.getString("producttype","").equals("vegetables")){
+                    Intent intent=new Intent(getApplicationContext(),VegetablesMenuActivity.class);
+                    startActivity(intent);
+                }
+
+
+//                if(sharedPreferences.getBoolean("cartfirsttime",true)==true){
+//                    editor.putBoolean("cartfirsttime",false);
+//                    editor.apply();
+//                    finish();
+//                }
+//                else if(sharedPreferences.getBoolean("cartfirsttime",true)==false){
+//                }
             }
         });
 
@@ -134,6 +171,17 @@ public class CartActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(!language.equals("")){
+            SharedPreferences sharedPreferences=getSharedPreferences("file1",MODE_PRIVATE);
+            SharedPreferences.Editor editor=sharedPreferences.edit();
+            editor.putBoolean("exitapp",true);
+            editor.apply();
+        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.os.ConfigurationCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.example.vendor.Classes.Vendor;
 import android.example.vendor.R;
@@ -47,6 +48,15 @@ public class RegistrationP1Activity extends AppCompatActivity {
                 intent.putExtra("username", username);
                 intent.putExtra("phonenumber", phonenumber);
                 startActivity(intent);
+
+                //passing info to shared preference
+                String sharedprefFile="file1";
+                SharedPreferences sharedPreferences=getSharedPreferences(sharedprefFile,MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("businessname",businessname);
+                editor.putString("username",username);
+                editor.putString("phonenumber",phonenumber);
+                editor.apply();
             }
         });
     }

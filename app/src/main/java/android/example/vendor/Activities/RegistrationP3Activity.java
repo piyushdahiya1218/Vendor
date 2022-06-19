@@ -3,6 +3,7 @@ package android.example.vendor.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.example.vendor.Classes.Vendor;
 import android.example.vendor.R;
 import android.os.Bundle;
@@ -25,6 +26,9 @@ public class RegistrationP3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_p3);
+
+        SharedPreferences sharedPreferences=getSharedPreferences("file1",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
 
         //intent info from previous activity
         Intent previntent=getIntent();
@@ -60,6 +64,8 @@ public class RegistrationP3Activity extends AppCompatActivity {
                         database=FirebaseDatabase.getInstance();
                         reference=database.getReference("vendor").child(phonenumber);
                         reference.setValue(new Vendor(businessname,username,phonenumber,"fruits",true));
+
+                        editor.putString("producttype","fruits");
                     }
                     // if vegetables was selected
                     else if (radioButton.getText().equals("Vegetables") || radioButton.getText().equals("सब्ज़ियाँ")){
@@ -74,7 +80,11 @@ public class RegistrationP3Activity extends AppCompatActivity {
                         database=FirebaseDatabase.getInstance();
                         reference=database.getReference("vendor").child(phonenumber);
                         reference.setValue(new Vendor(businessname,username,phonenumber,"vegetables",true));
+
+                        editor.putString("producttype","vegetables");
                     }
+
+                    editor.apply();
                 }
             }
         });
