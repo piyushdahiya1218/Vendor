@@ -100,6 +100,40 @@ public class VegetablesMenuActivity extends AppCompatActivity {
     }
 
     private void setproductslist() {
+        allproductslist.add(new Product("Asparagus","एस्परैगस",getResources().getIdentifier("asparagus","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Beetroot","चुकंदर",getResources().getIdentifier("beetroot","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Bitter Gourd","करेला",getResources().getIdentifier("bittergourd","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Bottle Gourd","लौकी",getResources().getIdentifier("bottlegourd","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Brinjal","बैंगन",getResources().getIdentifier("brinjal","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Broccoli","ब्रॉकली",getResources().getIdentifier("broccoli","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Cherry Tomato","चेरी टमाटर",getResources().getIdentifier("cherrytomato","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Chilly","मिर्च",getResources().getIdentifier("chilly","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Coriander","धनिया",getResources().getIdentifier("coriander","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Corn","मक्का",getResources().getIdentifier("corn","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Cucumber","खीरा",getResources().getIdentifier("cucumber","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Drumsticks","सहजन",getResources().getIdentifier("drumsticks","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Fenugreek","मेंथी",getResources().getIdentifier("fenugreek","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Garlic","लहसुन",getResources().getIdentifier("garlic","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Tinda","टिंडा",getResources().getIdentifier("tinda","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Jackfruit","कटहल",getResources().getIdentifier("jackfruit","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Kale","गोभी",getResources().getIdentifier("kale","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Lettuce","सलाद पत्ता",getResources().getIdentifier("lettuce","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Lotus Stem","कमल का तना",getResources().getIdentifier("lotusstem","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Olive","जैतून",getResources().getIdentifier("olive","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Onion","प्याज़",getResources().getIdentifier("onion","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Peas","मटर",getResources().getIdentifier("peas","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Potato","आलू",getResources().getIdentifier("potato","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Pumpkin","कद्दू",getResources().getIdentifier("pumpkin","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Red Bell Pepper","लाल शिमला मिर्च",getResources().getIdentifier("redbellpepper","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Ridge Gourd","तोरई",getResources().getIdentifier("ridgegourd","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Saag Bathua","साग बथुआ",getResources().getIdentifier("saagbathua","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Snake Cucumber","नाग खीरा",getResources().getIdentifier("snakecucumber","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Sweet Potato","शकरकंद",getResources().getIdentifier("sweetpotato","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Tomato","टमाटर",getResources().getIdentifier("tomato","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Turnip","शलजम",getResources().getIdentifier("turnip","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("White Radish","मूली",getResources().getIdentifier("whiteradish","drawable",getPackageName()),10,1,false,"vegetables"));
+        allproductslist.add(new Product("Yellow Bell Pepper","पीली बेल मिर्च",getResources().getIdentifier("yellowbellpepper","drawable",getPackageName()),10,1,false,"vegetables"));
+
         allproductslist.add(new Product("Beans","फलियां",getResources().getIdentifier("beans","drawable",getPackageName()),10,1,false,"vegetables"));
         allproductslist.add(new Product("Cabbage","पत्ता गोभी",getResources().getIdentifier("cabbage","drawable",getPackageName()),10,1,false,"vegetables"));
         allproductslist.add(new Product("Carrot","गाजर",getResources().getIdentifier("carrot","drawable",getPackageName()),10,1,false,"vegetables"));
