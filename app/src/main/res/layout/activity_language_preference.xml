@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg1"
-    android:backgroundTint="#32E4E0E0"
-    android:backgroundTintMode="multiply"
+    android:backgroundTint="#85E7E3BF"
+    android:backgroundTintMode="screen"
     tools:context=".Activities.LanguagePreferenceActivity">
 
 
