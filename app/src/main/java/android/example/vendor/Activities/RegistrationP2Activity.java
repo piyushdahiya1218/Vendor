@@ -96,21 +96,21 @@ public class RegistrationP2Activity extends AppCompatActivity {
 
 
         //FOR TESTING
-        Button testbutton=findViewById(R.id.testbutton);
-        testbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent previntent=getIntent();
-                String businessname=previntent.getStringExtra("businessname");
-                String username=previntent.getStringExtra("username");
-                String phonenumber=previntent.getStringExtra("phonenumber");
-
-                Intent intent=new Intent(getApplicationContext(), RegistrationP3Activity.class);
-                intent.putExtra("businessname", businessname);
-                intent.putExtra("username", username);
-                intent.putExtra("phonenumber", phonenumber);
-                startActivity(intent);
-            }
-        });
+//        Button testbutton=findViewById(R.id.testbutton);
+//        testbutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent previntent=getIntent();
+//                String businessname=previntent.getStringExtra("businessname");
+//                String username=previntent.getStringExtra("username");
+//                String phonenumber=previntent.getStringExtra("phonenumber");
+//
+//                Intent intent=new Intent(getApplicationContext(), RegistrationP3Activity.class);
+//                intent.putExtra("businessname", businessname);
+//                intent.putExtra("username", username);
+//                intent.putExtra("phonenumber", phonenumber);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

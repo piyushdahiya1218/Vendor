@@ -32,6 +32,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="32dp"
             android:background="@color/bgTrans"
+            android:backgroundTint="#D0EADDC2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
