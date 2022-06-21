@@ -10,11 +10,10 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="@string/menu"
+        android:layout_marginTop="4dp"
+        android:text="Stock"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,11 +51,11 @@
         android:id="@+id/allproductsrecyclerviewveg"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" >
+        app:layout_constraintTop_toBottomOf="@+id/textView20">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -69,5 +68,16 @@
         android:text="@string/confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="148dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="*Select tile to add stock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
