@@ -1,11 +1,15 @@
 # Vendor
-(This Vendor app is part of the project. Have a look at the Customer app here - https://github.com/piyushdahiya1218/Customer)
+*This Vendor app is part of the project. Have a look at the Customer app here - https://github.com/piyushdahiya1218/Customer*
 
-Tech stack used - Java, XML, Google Firebase
-
-This app is targeted at street vendors selling fruits and vegetables door to door on their cart.
-
-Aim is to help these vendors sell their products with ease by connecting them directly to customers using this app. Vendors will be able to see the demand by customer, bargain with price online, locate other potential customers and advertise their cart and products to increase their reach.
+### Tech stack used :
+<div>
+<img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="60" height="60"/>&nbsp;
+<img src="https://cdn.iconscout.com/icon/free/png-256/free-xml-file-2330558-1950399.png" title="Java" alt="Java" width="60" height="60"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain-wordmark.svg" title="Java" alt="Java" width="60" height="60"/>&nbsp;
+</div>
+<br/>  <br/>
+This app is targeted at street vendors selling fruits and vegetables door to door on their cart. Aim is to help these vendors sell their products with ease by connecting them directly to customers using this app. Vendors will be able to see the demand by customer, bargain with price online, locate other potential customers and advertise their cart and products to increase their reach.
+<br/>  <br/>
 
 ![2](https://github.com/piyushdahiya1218/Vendor/assets/63706751/5cbaaed3-1c98-4e34-a997-45894dfb4be3)  |  ![4](https://github.com/piyushdahiya1218/Vendor/assets/63706751/fd2a9dcb-47ad-40f7-8573-cf58faace5dc)
 
